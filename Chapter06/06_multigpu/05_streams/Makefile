@@ -3,7 +3,7 @@ HOST_COMPILER ?= g++
 NVCC=${CUDA_PATH}/bin/nvcc -ccbin ${HOST_COMPILER}
 TARGET=vector_addition merging_multi_gpu
 
-INCLUDES = -I${CUDA_PATH}/samples/common/inc
+INCLUDES = -I${CUDA_SAMPLES_PATH}/Common
 NVCC_FLAGS=-m64 -lineinfo --default-stream per-thread -Xcompiler -fopenmp # --resource-usage 
 
 LIBRARIES= -lgomp

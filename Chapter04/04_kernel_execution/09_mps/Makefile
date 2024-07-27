@@ -4,7 +4,7 @@ NVCC=${CUDA_PATH}/bin/nvcc -ccbin ${HOST_COMPILER}
 MPICC ?= mpicc
 TARGET=simpleMPI
 
-INCLUDES = -I${CUDA_PATH}/samples/common/inc -I/usr/local/include/
+INCLUDES = -I${CUDA_SAMPLES_PATH}/Common -I/usr/local/include/
 NVCC_FLAGS=-m64 -Xcompiler -fopenmp -rdc=true -lcudadevrt -lmpi # --resource-usage
 
 IS_CUDA_11:=${shell expr `$(NVCC) --version | grep compilation | grep -Eo -m 1 '[0-9]+.[0-9]' | head -1` \>= 11.0}

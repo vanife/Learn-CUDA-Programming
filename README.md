@@ -65,3 +65,15 @@ obtained a master's degree in information technology from the Indian Institute o
 
 ### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
+
+---
+# Making code work in 2024
+
+`Makefile`s will fail as the [cuda-samples](https://github.com/NVIDIA/cuda-samples) repository is not separate and not included with CUDA installation.
+To make it work, just:
+1. make a local copy of the `cuda-samples` repository. Example: `git checkout https://github.com/NVIDIA/cuda-samples ~/code/cuda-samples`
+2. in this git repository replace all Makefile to use separate environment variable:
+	sed -i '' -e 's/${CUDA_PATH}\/samples\/common\/inc/${CUDA_SAMPLES_PATH}\/Common/g' $(find . -type f -name Makefile)
+3. define this variable in the shell or .bashrc file: `export CUDA_SAMPLES_PATH=/home/[myname]/code/cuda-samples`
+
+

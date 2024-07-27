@@ -3,7 +3,7 @@ HOST_COMPILER ?= g++
 NVCC=${CUDA_PATH}/bin/nvcc -ccbin ${HOST_COMPILER}
 TARGET=test blur blur_stream
 
-INCLUDES = -I${CUDA_PATH}/samples/common/inc $(shell pkg-config opencv4 --cflags)
+INCLUDES = -I${CUDA_SAMPLES_PATH}/Common $(shell pkg-config opencv4 --cflags)
 NVCC_FLAGS=-m64 # --resource-usage
 
 IS_CUDA_11:=${shell expr `$(NVCC) --version | grep compilation | grep -Eo -m 1 '[0-9]+.[0-9]' | head -1` \>= 11.0}

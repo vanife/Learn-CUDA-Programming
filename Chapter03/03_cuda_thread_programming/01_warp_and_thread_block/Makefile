@@ -2,7 +2,7 @@ CUDA_PATH=/usr/local/cuda
 HOST_COMPILER ?= g++
 NVCC=${CUDA_PATH}/bin/nvcc -ccbin ${HOST_COMPILER}
 
-INCLUDES= -I${CUDA_PATH}/samples/common/inc
+INCLUDES= -I${CUDA_SAMPLES_PATH}/Common
 NVCC_FLAGS=-m64 -lineinfo
 
 IS_CUDA_11:=${shell expr `$(NVCC) --version | grep compilation | grep -Eo -m 1 '[0-9]+.[0-9]' | head -1` \>= 11.0}

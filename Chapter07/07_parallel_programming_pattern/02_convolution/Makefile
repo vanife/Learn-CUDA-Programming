@@ -3,7 +3,7 @@ HOST_COMPILER ?= g++
 NVCC=${CUDA_PATH}/bin/nvcc -ccbin ${HOST_COMPILER}
 TARGET=convolution
 
-INCLUDES = -I${CUDA_PATH}/samples/common/inc
+INCLUDES = -I${CUDA_SAMPLES_PATH}/Common
 NVCC_FLAGS= -lineinfo --maxrregcount=48 --resource-usage -Xcompiler -rdynamic -Xcompiler -fopenmp -rdc=true
 
 IS_CUDA_11:=${shell expr `$(NVCC) --version | grep compilation | grep -Eo -m 1 '[0-9]+.[0-9]' | head -1` \>= 11.0}
